@@ -9,7 +9,7 @@ import java.util.Objects;
 @Entity
 public class Cart {
     @Id
-    private String id;  // 🔹 Cambiado de Long a String para usarlo en memoria
+    private String id;  
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Product> products = new ArrayList<>();
@@ -20,13 +20,13 @@ public class Cart {
         this.lastUpdated = LocalDateTime.now();
     }
 
-    public Cart(String id) {  // 🔹 Nuevo constructor que recibe ID
+    public Cart(String id) {
         this.id = id;
         this.lastUpdated = LocalDateTime.now();
     }
 
     public String getId() { return id; }
-    public void setId(String id) { this.id = id; }  // 🔹 Agregado para asignar ID manualmente
+    public void setId(String id) { this.id = id; }
 
     public List<Product> getProducts() { return products; }
     public LocalDateTime getLastUpdated() { return lastUpdated; }
